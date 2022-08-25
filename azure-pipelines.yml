@@ -1,21 +1,21 @@
 name: Azure Pipelines
+variables:
+  python.version: '3.7.6'
 stages:
 - stage: Build
   jobs:
   - job: Build
     pool:
-      name: agent_prjct3
+      name: Hosted Ubuntu 1604
     steps:
     - task: CmdLine@2
-      displayName: "Install Newman Runner"
+      displayName: Install Newman
       inputs:
-        script:
-          sudo npm install -g newman
+        script: 'sudo npm install -g newman'
         workingDirectory: $(System.DefaultWorkingDirectory)
     - task: CmdLine@2
-      displayName: "run newman"
+      displayName: Run Regression Tests
       continueOnError: true
       inputs:
-        script: newman run StarterAPIs.json
+        script: 'newman run StarterAPIs.json'
         workingDirectory: 'starter-code/automatedtesting/postman'
-    
