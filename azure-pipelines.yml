@@ -1,11 +1,10 @@
-pool: agent_prjct3
 name: Azure Pipelines
 stages:
 - stage: Build
   jobs:
   - job: Build
     pool:
-      name: Hosted Ubuntu 1604
+      name: agent_prjct3
     steps:
     - task: CmdLine@2
       displayName: Install Newman Runner
