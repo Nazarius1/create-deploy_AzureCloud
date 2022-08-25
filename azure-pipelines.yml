@@ -9,7 +9,7 @@ stages:
     - task: CmdLine@2
       displayName: "Install Newman Runner"
       inputs:
-        script:
+        script: |
           sudo apt-get install npm
           sudo npm install -g newman
         workingDirectory: $(System.DefaultWorkingDirectory)
