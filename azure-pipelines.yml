@@ -9,9 +9,14 @@ stages:
       name: prjct3
     steps:
     - task: CmdLine@2
+      displayName: install npm
+      inputs:
+        script: 'sudo npm -g npm@latest'
+        workingDirectory: $(System.DefaultWorkingDirectory)
+    - task: CmdLine@2
       displayName: Install Newman
       inputs:
-        script: 'npm install -g newman'
+        script: 'sudo npm install -g newman'
         workingDirectory: $(System.DefaultWorkingDirectory)
     - task: CmdLine@2
       displayName: Run Regression Tests
