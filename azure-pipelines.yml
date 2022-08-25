@@ -7,14 +7,16 @@ stages:
       name: agent_prjct3
     steps:
     - task: CmdLine@2
-      displayName: Install Newman Runner
+      displayName: "Install Newman Runner"
       inputs:
-        script: 'sudo npm install -g newman'
+        script:
+          sudo apt-get install npm
+          sudo npm install -g newman
         workingDirectory: $(System.DefaultWorkingDirectory)
     - task: CmdLine@2
-      displayName: DISPLAY NAME
+      displayName: "run newman"
       continueOnError: true
       inputs:
-        script: 'newman run StarterAPIs.json'
+        script: newman run StarterAPIs.json
         workingDirectory: 'starter-code/automatedtesting/postman'
     
